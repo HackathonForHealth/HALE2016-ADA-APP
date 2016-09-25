@@ -5,6 +5,14 @@
       <p style="visibility: visible;" id="form-message"></p>  
     
       <label class="item item-input">
+        <input type="text" placeholder="Nome" ng-model="registerData.name">
+      </label>
+
+      <label ng-if="!hidePictureInput" class="item item-input">
+	  	<button class="button button-calm" ng-click="getImage()">Upload image</button>
+	  </label>
+      
+      <label class="item item-input">
         <input type="email" placeholder="Email" ng-model="registerData.email">
       </label>
       <label class="item item-input">
