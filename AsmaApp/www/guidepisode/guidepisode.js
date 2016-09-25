@@ -20,6 +20,6 @@ angular.module('AsmaApp.Guidepisode', ['ionic'])
 
 /**************************************** Controllers ******************************************************/
 
-.controller('MainCtrl', function($scope) {
-  console.log("oioioi");
+.controller('GuidepisodeCtrl', function($scope) {
+  
 });

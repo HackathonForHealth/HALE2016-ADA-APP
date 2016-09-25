@@ -1,15 +1,15 @@
-angular.module('AsmaApp.Guidepisode', ['ionic'])
+angular.module('AsmaApp.Experiences', ['ionic'])
 
 .config(function($stateProvider) {
   // Set routes for Spot, new spot and edit spot screens
   // All routes must be inside 'content', as we are using common/template.html as the app template.
   $stateProvider
-    .state('app.main', {
-      url: '/main',
+    .state('app.experiences', {
+      url: '/experiences',
       views: {
         'content': {
-          templateUrl: 'main/index.html',
-          controller: 'MainCtrl'
+          templateUrl: 'experiences/index.html',
+          controller: 'ExperiencesCtrl'
         }
       }
     });
@@ -20,6 +20,6 @@ angular.module('AsmaApp.Guidepisode', ['ionic'])
 
 /**************************************** Controllers ******************************************************/
 
-.controller('MainCtrl', function($scope) {
-  console.log("oioioi");
+.controller('ExperiencesCtrl', function($scope) {
+  
 });
