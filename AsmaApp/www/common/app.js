@@ -162,9 +162,18 @@ angular.module('AsmaApp', ['ionic', 'ngCordova',
   $httpProvider.interceptors.push('AuthInterceptor');
 })
 
+.factory('UsersService', function($http, API_URL){
+  return {
+    getUser: function(){
+      var url = API_URL + 'user';
+      return $http.get(url);
+    },
+  }
+})
+
 /**************************************** Controllers ******************************************************/
 
-.controller('AppCtrl', function($scope, $ionicPlatform, $state, AuthService, AUTH_EVENTS) {
+.controller('AppCtrl', function($scope, $ionicPlatform, $state, UsersService, AuthService, AUTH_EVENTS) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -190,5 +199,15 @@ angular.module('AsmaApp', ['ionic', 'ngCordova',
     errorMessage.innerHTML = message;
     errorMessage.style.visibility = "visible";
   }
+
+})
+
+.controller('SideMenuCtrl', function($scope, UsersService) {
+  UsersService.getUser().then(function(response){
+    $scope.user = response.data.user;
+  }).catch(function(response){
+    //handle the error
+  });
+  
 });
 

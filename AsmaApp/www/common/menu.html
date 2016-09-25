@@ -4,9 +4,10 @@
   </ion-side-menu-content>
 
   
-  <ion-side-menu side="left">
+  <ion-side-menu side="left" ng-controller="SideMenuCtrl">
     <ion-header-bar class="bar-stable">
-      <h1 class="title">Left</h1>
+      <img src="{{user.avatar}}">
+      <h1 class="title">{{ user.name }}</h1>
     </ion-header-bar>
     <ion-content>
       <ion-list>
