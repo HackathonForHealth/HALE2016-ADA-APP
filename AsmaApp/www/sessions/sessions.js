@@ -1,8 +1,6 @@
 angular.module('AsmaApp.Sessions', ['ionic'])
 
 .config(function($stateProvider, $urlRouterProvider) {
-  // Set routes for Spot, new spot and edit spot screens
-  // All routes must be inside 'content', as we are using common/template.html as the app template.
   $stateProvider
     .state('app.login', {
       url: '/login',
@@ -23,12 +21,11 @@ angular.module('AsmaApp.Sessions', ['ionic'])
         }
       }
     })
-
 })
 
 /**************************************** SERVICES ******************************************************/
 
-/**************************************** Controllers ******************************************************/
+/**************************************** CONTROLLERS ******************************************************/
 
 .controller('LoginCtrl', function($scope, $state, $http, AuthService) {
   
@@ -42,16 +39,52 @@ angular.module('AsmaApp.Sessions', ['ionic'])
   };
 })
 
-.controller('RegisterCtrl', function($scope, $state, $http, AuthService, API_URL) {
+.controller('RegisterCtrl', function($scope, $state, $http, $cordovaCamera, AuthService, API_URL) {
   
+  $scope.getImage = function() {
+    // Set $cordovaCamera options.
+    var options = {
+      quality: 50,
+      destinationType: Camera.DestinationType.DATA_URL,
+      encodingType: Camera.EncodingType.JPEG,
+      saveToPhotoAlbum: true,
+      correctOrientation:true
+    };
+
+    // Define options to be presented to user on a popup (taking pictures or getting image from gallery)
+    var cameraPopupOptions = {
+      'buttonLabels': ['Take Picture', 'Select From Gallery'],
+      'addCancelButtonWithLabel': 'Cancel'
+    };
+
+    // Displays popup to user.
+    window.plugins.actionsheet.show(cameraPopupOptions, function (_btnIndex) {
+      if (_btnIndex === 1) {
+          // If option 1 is selected, take a picture.
+          options.sourceType = Camera.PictureSourceType.CAMERA;
+      } else if (_btnIndex === 2) {
+          // If option 2 is selected, get image from gallery.
+          options.sourceType = navigator.camera.PictureSourceType.SAVEDPHOTOALBUM;
+      }
+      $cordovaCamera.getPicture(options).then(function(imageData) {
+        // Saves image to $scope.picturedata.
+        $scope.registerData.avatar = "data:image/jpeg;base64," + imageData;
+        
+      }, function(err) {
+        // error
+      });
+    });
+  };
+
   $scope.registerData = {};// Declares empty object to store resetPassword data from the form.
   $scope.register = function() {
     var url = API_URL + 'registrations'; // Declares URL to post form to.
-
     $http.post(url, {
       email: $scope.registerData.email,
+      name: $scope.registerData.name,
       password: $scope.registerData.password,
       password_confirmation: $scope.registerData.passwordConfirmation,
+      avatar: $scope.registerData.avatar
     }).then(function (response){
       if (response.data.status == 200) {
         // If successful, stores authentication data.
@@ -65,4 +98,5 @@ angular.module('AsmaApp.Sessions', ['ionic'])
     });
   };
 
+  
 });
