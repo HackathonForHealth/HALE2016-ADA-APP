@@ -1,0 +1,23 @@
+.sessions-page {
+	background-image: url('../img/sessions-background.png');
+	background-size: cover;
+	background-position: center;
+}
+
+.button.button-calm {
+	background-color: #72C5CE;
+	text-transform: lowercase;
+	font-weight: bold;
+}
+
+.sessions-page .list.list-inset {
+	width: 60%;
+	background: none;
+	margin: 0 auto;
+	margin-top: 200px;
+}
+
+.sessions-page .list.list-inset a {
+	color: gray;
+	width: 100%;
+}
