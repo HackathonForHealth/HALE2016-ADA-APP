@@ -71,8 +71,31 @@
  #popuplearnmore img {
  	text-align: center;
  	width: 100%;
- 	height: 80%;
- 	width: 80%;
+ 	height: 100%;
  	margin: 0 auto;
  	margin-top: 50px;
  }
+
+ .whitewhite {
+ 	background: #F2F2F2;
+ }
+
+ .whitewhite a:link,
+ .whitewhite a:hover,
+ .whitewhite a:active,
+ .whitewhite a:visited {
+ 	text-decoration: none;
+ 	text-align: center;
+ }
+
+ #img-guia {
+ 	width: 25%;
+ 	padding-top: 1%
+ 	padding-bottom: 1%;
+ }
+
+ .bar-footer {
+ 	height: 10%
+ }
+
+ 
