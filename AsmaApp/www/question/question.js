@@ -1,15 +1,15 @@
-angular.module('AsmaApp.Main', ['ionic'])
+angular.module('AsmaApp.Question', ['ionic'])
 
 .config(function($stateProvider) {
   // Set routes for Spot, new spot and edit spot screens
   // All routes must be inside 'content', as we are using common/template.html as the app template.
   $stateProvider
-    .state('app.main', {
-      url: '/main',
+    .state('app.question', {
+      url: '/question',
       views: {
         'content': {
-          templateUrl: 'main/index.html',
-          controller: 'MainCtrl'
+          templateUrl: 'question/index.html',
+          controller: 'QuestionCtrl'
         }
       }
     });
@@ -20,6 +20,5 @@ angular.module('AsmaApp.Main', ['ionic'])
 
 /**************************************** Controllers ******************************************************/
 
-.controller('MainCtrl', function($scope) {
-  console.log("oioioi");
+.controller('QuestionCtrl', function($scope) {
 });
