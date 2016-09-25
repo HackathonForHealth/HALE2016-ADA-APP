@@ -1,6 +1,26 @@
 <ion-view view-title="Register">
   <ion-content class="padding">
-  	Register
+  	<div class="list list-inset">
+
+      <p style="visibility: visible;" id="form-message"></p>  
+    
+      <label class="item item-input">
+        <input type="email" placeholder="Email" ng-model="registerData.email">
+      </label>
+      <label class="item item-input">
+        <input type="password" placeholder="Password" ng-model="registerData.password">
+      </label>
+      <label class="item item-input">
+        <input type="password" placeholder="Password confirmation" ng-model="registerData.passwordConfirmation">
+      </label>
+
+      <button class="button button-block button-calm" ng-click="register()">Registrar</button>
+
+      <div class="list list-inset">
+        <a class="button button-clear button-calm" href="#/app/login">Login</a>
+      </div>
+    </div>
+    
   </ion-content>
   
 </ion-view>

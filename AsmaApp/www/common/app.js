@@ -20,6 +20,7 @@ angular.module('AsmaApp', ['ionic', /*'http-auth-interceptor',*/ 'AsmaApp.Main',
       StatusBar.styleDefault();
     }
   });
+
 })
 
 // Every time the app changes state (when a new screen starts), check if user is autheticated. 
@@ -43,7 +44,7 @@ angular.module('AsmaApp', ['ionic', /*'http-auth-interceptor',*/ 'AsmaApp.Main',
 })
  
  // Defines API url as a constant
-.constant('API_URL', 'http://192.168.1.173:3000/api/')
+.constant('API_URL', 'http://192.168.100.45:3000/api/')
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
@@ -162,8 +163,7 @@ angular.module('AsmaApp', ['ionic', /*'http-auth-interceptor',*/ 'AsmaApp.Main',
 
 /**************************************** Controllers ******************************************************/
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
-
+.controller('AppCtrl', function($scope, $ionicPlatform, $state, AuthService, AUTH_EVENTS) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -171,5 +171,23 @@ angular.module('AsmaApp', ['ionic', /*'http-auth-interceptor',*/ 'AsmaApp.Main',
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
+  // Checks if user is authenticated. If not, redirects to login screen.
+  $scope.$on(AUTH_EVENTS.notAuthenticated, function(event) {
+    AuthService.logout();
+    $state.go('app.login');
+  });
+
+  // Logs user out and redirects to login screen.
+  $scope.logout = function() {
+    AuthService.logout();
+    $state.go('app.login');
+  };
+
+  // Displays an error message on forms. Receives message to be displayed as parameter.
+  $scope.showFormMessage = function(message) {
+    var errorMessage = document.getElementById("form-message");
+    errorMessage.innerHTML = message;
+    errorMessage.style.visibility = "visible";
+  }
 });
 
