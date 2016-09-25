@@ -21,5 +21,5 @@ angular.module('AsmaApp.Main', ['ionic'])
 /**************************************** Controllers ******************************************************/
 
 .controller('MainCtrl', function($scope) {
-  console.log("oioioi");
+  
 });

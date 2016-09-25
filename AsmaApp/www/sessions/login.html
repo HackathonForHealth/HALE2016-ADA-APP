@@ -1,7 +1,23 @@
 <ion-view view-title="Login">
   <ion-content class="padding">
-  	Login
-  	<a href="#/app/register">Cadastro</a>
+  	<div class="list list-inset">
+
+      <p style="visibility: visible;" id="form-message"></p>  
+    
+      <label class="item item-input">
+        <input type="email" placeholder="Email" ng-model="loginData.email">
+      </label>
+      <label class="item item-input">
+        <input type="password" placeholder="Password" ng-model="loginData.password">
+      </label>
+      
+      <button class="button button-block button-calm" ng-click="login()">Login</button>
+
+      <div class="list list-inset">
+        <a class="button button-clear button-calm" href="#/app/register">Cadastre-se</a>
+      </div>
+    </div>
+    
   </ion-content>
   
 </ion-view>
