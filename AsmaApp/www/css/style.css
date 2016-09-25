@@ -1,1 +1,21 @@
 /* Empty. Add your own CSS if you like */
+ #xp-image {
+ 	width: 40%;
+ 	border-radius: 10px;
+ }
+
+ .main-cont {
+ 	text-align: center;
+ 	padding-left: 10px;
+ 	padding-right: 10px;
+ }
+
+ .sub-text {
+ 	padding-left: 0;
+ 	padding-right: 0;
+ }
+
+ .button-smaller {
+ 	padding-left: 20px;
+ 	padding-right: 20px;
+ }
