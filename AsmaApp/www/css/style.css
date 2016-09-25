@@ -1,6 +1,6 @@
 /* Empty. Add your own CSS if you like */
  #xp-image {
- 	width: 40%;
+ 	width: 30%;
  	border-radius: 10px;
  }
 
@@ -90,7 +90,7 @@
 
  #img-guia {
  	width: 25%;
- 	padding-top: 1%
+ 	padding-top: 5%
  	padding-bottom: 1%;
  }
 
@@ -98,4 +98,10 @@
  	height: 10%
  }
 
- 
+.button-downn {
+	text-align: bottom;
+ }
+
+ .item-image {
+ 	height: 150%;
+ }
