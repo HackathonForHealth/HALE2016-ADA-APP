@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('AsmaApp', ['ionic', 'ngCordova',
-                  'AsmaApp.Main', 'AsmaApp.Sessions', 'AsmaApp.Categories', 'AsmaApp.Guidepisode', 'AsmaApp.Question'])
+                  'AsmaApp.Main', 'AsmaApp.Sessions', 'AsmaApp.Categories', 'AsmaApp.Guidepisode', 'AsmaApp.Experiences', 'AsmaApp.Question'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
