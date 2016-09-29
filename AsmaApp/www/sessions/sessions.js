@@ -31,11 +31,12 @@ angular.module('AsmaApp.Sessions', ['ionic'])
   
   $scope.loginData = {}; // Declares empty object to store login data from the form.
   $scope.login = function() {
-    AuthService.login($scope.loginData.email, $scope.loginData.password).then(function(authenticated) {
+    $state.go('app.main', {}, {reload: true});
+    /*AuthService.login($scope.loginData.email, $scope.loginData.password).then(function(authenticated) {
       $state.go('app.main', {}, {reload: true});
     }, function(err) {
       $scope.showFormMessage(err);
-    });
+    });*/
   };
 })
 

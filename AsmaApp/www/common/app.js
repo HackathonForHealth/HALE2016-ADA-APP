@@ -142,7 +142,7 @@ angular.module('AsmaApp', ['ionic', 'ngCordova',
     login: login,
     logout: logout,
     storeUserCredentials: storeUserCredentials,
-    isAuthenticated: function() {return isAuthenticated;}
+    isAuthenticated: function() {return true /*isAuthenticated*/;}
   };
 })
 

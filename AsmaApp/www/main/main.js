@@ -20,6 +20,8 @@ angular.module('AsmaApp.Main', ['ionic'])
 
 /**************************************** Controllers ******************************************************/
 
-.controller('MainCtrl', function($scope, UsersService) {
-  
+.controller('MainCtrl', function($scope, $state, UsersService) {
+  $scope.move = function() {
+    $state.go('app.categories');
+  }
 });

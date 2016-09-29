@@ -12,45 +12,31 @@ angular.module('AsmaApp.Question', ['ionic'])
           controller: 'QuestionCtrl'
         }
       }
+    })
+
+    .state('app.question2', {
+      url: '/question2',
+      views: {
+        'content': {
+          templateUrl: 'question/index2.html',
+          controller: 'QuestionCtrl2'
+        }
+      }
     });
 
 })
 
 /**************************************** SERVICES ******************************************************/
 
-.factory('QuestionsService', function($http) {
-
-  // Defines and prefix for the assets url in Android.
-  var url = "";
-  if(ionic.Platform.isAndroid()){
-    url = "/android_asset/www/";
-  }
-
-
-  var question = [];
-  return {
-    getList: function() {
-      // Reads external JSON to get list of supermarkets.
-      return $http.get(url + "json/supermarkets.json").then(function(response){
-        // Returns list of Supermarket objects.
-        supermarkets = response.data;
-        return supermarkets;
-      });
-    },
-    find: function(id) {
-      // Finds one supermarket by id.
-      for(i=0;i<supermarkets.length;i++){
-        if(supermarkets[i].id == parseInt(id)){
-          return supermarkets[i];
-        }
-      }
-      return null;
-    }
-  };
-})
-
-
 /**************************************** CONTROLLERS ******************************************************/
 
-.controller('QuestionCtrl', function($scope) {
+.controller('QuestionCtrl', function($scope, $state) {
+
+  $scope.move = function() {
+    $state.go('app.question2');
+  }
+
+})
+
+.controller('QuestionCtrl2', function($scope) {
 });
